@@ -6,6 +6,14 @@ Live Demo: [jashanpreet645.github.io](https://github.com/Jashanpreet645/Personal
 
 ---
 
+## 📸 Preview & Showcase
+
+<p align="center">
+  <img src="./public/images/placeholder.webp" alt="Jashanpreet Singh Portfolio Preview" width="800px" style="border-radius: 10px; border: 1px solid #ddd;" />
+</p>
+
+---
+
 ## ⚙️ Tech Stack
 
 This project is built using modern web development frameworks and graphics libraries:
@@ -57,17 +65,3 @@ To run this project locally, follow these steps:
     ```
 
 ---
-
-## ⚠️ Credits & Inspiration
-
-This portfolio is adapted from the open-source design and code of **Moncy Yohannan**. Special thanks to him for sharing his work and layout style with the community. 
-
-Please note:
-*   The original 3D character/avatar files and some custom resources are proprietary to the original creator.
-*   The GSAP trial plugins (`gsap-trial`) are included for development and learning purposes. For production hosting, appropriate GSAP licenses should be obtained.
-
----
-
-## 📄 License
-
-This project is licensed under the Personal Portfolio License (PPL) v1.0. See the `LICENSE` file for more details.
