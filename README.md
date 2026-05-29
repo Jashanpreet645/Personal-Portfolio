@@ -1,65 +1,73 @@
-# My Portfolio Website - Overview 🚀
+# Jashanpreet Singh - Personal Portfolio 🚀
 
-This repository contains the open-source version of my personal portfolio website.  
-Feel free to explore the code and use it for learning and inspiration.
+Welcome to the repository of my personal portfolio website! This project is a highly interactive, 3D-immersive web application showcasing my projects, skills, career history, and passion for creative full-stack development.
 
----
-
-## ⚠️ Usage Notice
-
-This project is shared for learning purposes only.
-
-Please do NOT:
-- Clone or replicate the full website or design
-- Repost it with minor content changes
-- Use this project for commercial/client work
-- Create tutorials or content using this exact project
-
-If you use parts of the code, you must provide proper credit linking back to the original repository.
-
-Build your own version — don’t just copy.
-
-— Moncy Yohannan
-
----
-
-## 🛠️ Instructions
-
-I have modified the GSAP Club plugins using trial versions.  
-⚠️ Note: Trial plugins cannot be used for production or hosting.
-
-For official GSAP Club plugins, refer here:  
-https://gsap.com/docs/v3/Installation/
+Live Demo: [jashanpreet645.github.io](https://github.com/Jashanpreet645/Personal-Portfolio) (or your hosted domain)
 
 ---
 
 ## ⚙️ Tech Stack
 
-React • TypeScript • GSAP • Three.js • WebGL • HTML • CSS • JavaScript
+This project is built using modern web development frameworks and graphics libraries:
+
+*   **Frontend Framework**: React with TypeScript
+*   **Styling**: Tailwind CSS & Custom CSS
+*   **3D Graphics & Physics**: Three.js, React Three Fiber (R3F), `@react-three/drei`, `@react-three/cannon`
+*   **Animations**: GSAP (GreenSock Animation Platform) using ScrollTrigger, SplitText, and custom timeline effects
+*   **Smooth Scroll**: Lenis Scroll integration
+*   **Backend & DB (For full stack work)**: Node.js, Express, MongoDB
+*   **Build Tool**: Vite
 
 ---
 
-## 🎨 Assets Usage
+## ✨ Key Features
 
-Some 3D assets included in this repository are free to use for learning purposes.
-
-However:
-
-- The original 3D avatar used on my live portfolio is NOT included in this repository
-- That avatar is a custom asset created over ~1 month
-- It is not open source and not available for reuse
-
-Any usage, extraction, or redistribution of that avatar from my live website is strictly prohibited.
+1.  **Interactive 3D Scene**: An immersive 3D character avatar that tracks mouse movements, built using React Three Fiber, React Three Drei, and custom shader/lighting setups.
+2.  **3D Tech Stack Canvas**: Floating 3D balls with technology icons utilizing R3F canvas and physics interactions.
+3.  **Advanced Scroll Animations**: Custom kinetic typography and parallax elements driven by GSAP ScrollTrigger and SplitText.
+4.  **Custom Cursor**: A context-aware, custom fluid cursor trail that scales and adapts based on hovered elements.
+5.  **Clean & Modular Codebase**: Structured with reusable components, providers for state, custom utilities for animation, and TypeScript types.
 
 ---
 
-![Protfolio-Preview](https://github.com/user-attachments/assets/3c4557e7-6392-4928-b8a9-7b2476ef4edd)
+## 🛠️ Local Setup & Installation
+
+To run this project locally, follow these steps:
+
+1.  **Clone the Repository**:
+    ```bash
+    git clone https://github.com/Jashanpreet645/Personal-Portfolio.git
+    cd Personal-Portfolio
+    ```
+
+2.  **Install Dependencies**:
+    ```bash
+    npm install
+    ```
+
+3.  **Run Development Server**:
+    ```bash
+    npm run dev
+    ```
+    Open `http://localhost:5173` in your browser.
+
+4.  **Production Build**:
+    ```bash
+    npm run build
+    ```
+
+---
+
+## ⚠️ Credits & Inspiration
+
+This portfolio is adapted from the open-source design and code of **Moncy Yohannan**. Special thanks to him for sharing his work and layout style with the community. 
+
+Please note:
+*   The original 3D character/avatar files and some custom resources are proprietary to the original creator.
+*   The GSAP trial plugins (`gsap-trial`) are included for development and learning purposes. For production hosting, appropriate GSAP licenses should be obtained.
 
 ---
 
 ## 📄 License
 
-This project is licensed under the Personal Portfolio License (PPL) v1.0.
-
-See the LICENSE file for full details
-
+This project is licensed under the Personal Portfolio License (PPL) v1.0. See the `LICENSE` file for more details.
