@@ -47,8 +47,8 @@ const Loading = ({ percent }: { percent: number }) => {
     // Start expanding portal zoom (1.5s)
     setClicked(true);
 
-    let intervalId: NodeJS.Timeout;
-    let finalUnmountId: NodeJS.Timeout;
+    let intervalId: number;
+    let finalUnmountId: number;
 
     // Start greetings sequence at 500ms when the screen becomes black
     const greetingsTimer = setTimeout(() => {
