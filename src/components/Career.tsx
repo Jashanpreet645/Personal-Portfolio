@@ -12,42 +12,54 @@ const Career = () => {
           <div className="career-timeline">
             <div className="career-dot"></div>
           </div>
+          
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>High School Student</h4>
+                <h4>Senior Secondary Education</h4>
                 <h5>D.A.V. Public School, Lehragaga</h5>
               </div>
               <h3>2023</h3>
             </div>
             <p>
-              Completed XII senior secondary education with strong analytical, scientific, and mathematics foundations.
+              Completed higher secondary education with a strong foundation in
+              Mathematics, Science, and Computer Applications, developing analytical
+              and problem-solving skills that inspired a career in technology.
             </p>
           </div>
+
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
                 <h4>Research Intern</h4>
-                <h5>Thapar Institute of Engineering and Technology</h5>
+                <h5>Thapar Institute of Engineering & Technology</h5>
               </div>
               <h3>2025</h3>
             </div>
             <p>
-              Worked under Dr. Gurpal Singh Chhabra (Computer Science Department), conducting a comprehensive review on developed smart contracts using Solidity and integrated with Ethereum. Enhanced skills in scientific writing, critical analysis, and data interpretation.
+              Conducted research under the guidance of Dr. Gurpal Singh Chhabra,
+              focusing on blockchain technologies, Ethereum ecosystems, and
+              Solidity-based smart contracts. Strengthened expertise in technical
+              research, literature review, and scientific documentation.
             </p>
           </div>
+
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>B.E. Computer Engineering</h4>
-                <h5>Thapar Institute of Engineering and Technology</h5>
+                <h4>Summer Intern</h4>
+                <h5>DRDO – Defence Research & Development Organisation</h5>
               </div>
-              <h3>NOW</h3>
+              <h3>Present</h3>
             </div>
             <p>
-              Undergraduate studies focusing on core computer science subjects (Data Structures, Algorithms, DBMS, OOP, Operating Systems, Computer Networks). Actively served as Team Leader in multiple hackathons, coordinating the full software development lifecycle from ideation to deployment.
+              Working on advanced software and technology-driven solutions while
+              gaining practical experience in real-world research and development
+              environments. Collaborating with professionals on impactful projects
+              and enhancing technical problem-solving capabilities.
             </p>
           </div>
+
         </div>
       </div>
     </div>
