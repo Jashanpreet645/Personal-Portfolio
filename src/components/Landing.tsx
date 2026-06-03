@@ -1,27 +1,30 @@
 import { PropsWithChildren, useEffect } from "react";
 import "./styles/Landing.css";
-import { SplitText } from "gsap-trial/SplitText";
-import { gsap } from "gsap";
-
-gsap.registerPlugin(SplitText);
+import SplitType from "split-type";
 
 const Landing = ({ children }: PropsWithChildren) => {
   useEffect(() => {
-    if (typeof SplitText !== "undefined") {
-      (window as any).landingTextSplit = new SplitText(
-        [".landing-info h3", ".landing-intro h2", ".landing-intro h1"],
-        {
-          type: "chars,lines",
-          linesClass: "split-line",
-        }
-      );
+    (window as any).landingTextSplit = new SplitType(
+      ".landing-info h3, .landing-intro h2, .landing-intro h1",
+      {
+        types: "chars,lines",
+        lineClass: "split-line",
+      }
+    );
 
-      let TextProps = { type: "chars,lines", linesClass: "split-h2" };
-      (window as any).landingText2Split = new SplitText(".landing-h2-info", TextProps);
-      (window as any).landingText3Split = new SplitText(".landing-h2-info-1", TextProps);
-      (window as any).landingText4Split = new SplitText(".landing-h2-1", TextProps);
-      (window as any).landingText5Split = new SplitText(".landing-h2-2", TextProps);
-    }
+    const TextProps = { types: "chars,lines" as const, lineClass: "split-h2" };
+    (window as any).landingText2Split = new SplitType(".landing-h2-info", TextProps);
+    (window as any).landingText3Split = new SplitType(".landing-h2-info-1", TextProps);
+    (window as any).landingText4Split = new SplitType(".landing-h2-1", TextProps);
+    (window as any).landingText5Split = new SplitType(".landing-h2-2", TextProps);
+
+    return () => {
+      (window as any).landingTextSplit?.revert();
+      (window as any).landingText2Split?.revert();
+      (window as any).landingText3Split?.revert();
+      (window as any).landingText4Split?.revert();
+      (window as any).landingText5Split?.revert();
+    };
   }, []);
   return (
     <>

@@ -1,5 +1,5 @@
 import gsap from "gsap";
-import { smoother } from "../Navbar";
+import { lenis } from "../Navbar";
 
 export function initialFX() {
   try {
@@ -9,8 +9,8 @@ export function initialFX() {
     // Batch layout-triggering changes into a single frame
     requestAnimationFrame(() => {
       document.body.style.overflowY = "auto";
-      if (smoother && typeof smoother.paused === "function") {
-        smoother.paused(false);
+      if (lenis && typeof lenis.start === "function") {
+        lenis.start();
       }
     });
 
