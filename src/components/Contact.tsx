@@ -19,8 +19,12 @@ const Contact = () => {
     email: "",
     message: "",
   });
-
   const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -29,14 +33,42 @@ const Contact = () => {
       ...form,
       [name]: value,
     });
+
+    if (errors[name as keyof typeof errors]) {
+      setErrors({
+        ...errors,
+        [name]: "",
+      });
+    }
+  };
+
+  const validate = () => {
+    let tempErrors = { name: "", email: "", message: "" };
+    let isValid = true;
+
+    if (!form.name.trim()) {
+      tempErrors.name = "Name is required";
+      isValid = false;
+    }
+    if (!form.email.trim()) {
+      tempErrors.email = "Email is required";
+      isValid = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+      tempErrors.email = "Please enter a valid email address";
+      isValid = false;
+    }
+    if (!form.message.trim()) {
+      tempErrors.message = "Message is required";
+      isValid = false;
+    }
+
+    setErrors(tempErrors);
+    return isValid;
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
-      alert("Please fill out all fields before sending.");
-      return;
-    }
+    if (!validate()) return;
     setLoading(true);
 
     emailjs
@@ -57,6 +89,11 @@ const Contact = () => {
           alert("Thank you. I will get back to you as soon as possible.");
 
           setForm({
+            name: "",
+            email: "",
+            message: "",
+          });
+          setErrors({
             name: "",
             email: "",
             message: "",
@@ -84,6 +121,7 @@ const Contact = () => {
           <form
             ref={formRef}
             onSubmit={handleSubmit}
+            noValidate
             className="mt-4 flex flex-col gap-4"
           >
             <label className="flex flex-col">
@@ -96,8 +134,23 @@ const Contact = () => {
                 placeholder="What's your good name?"
                 data-cursor="disable"
                 required
-                className="bg-tertiary py-3 px-4 placeholder:text-secondary text-white rounded-lg outline-none border border-[rgba(194,164,255,0.15)] focus:border-[var(--accentColor)] focus:ring-1 focus:ring-[var(--accentColor)] font-medium transition-all duration-300 hover:border-[rgba(194,164,255,0.4)]"
+                className={`bg-tertiary py-3 px-4 placeholder:text-secondary text-white rounded-lg outline-none border font-medium transition-all duration-300 hover:border-[rgba(194,164,255,0.4)] ${
+                  errors.name
+                    ? "border-red-500/80 focus:border-red-500 focus:ring-1 focus:ring-red-500"
+                    : "border-[rgba(194,164,255,0.15)] focus:border-[var(--accentColor)] focus:ring-1 focus:ring-[var(--accentColor)]"
+                }`}
               />
+              {errors.name && (
+                <span 
+                  className="text-[#ff5252] text-[12px] font-medium mt-1.5 flex items-center gap-1.5"
+                  style={{ animation: "fadeIn 0.25s ease-out forwards" }}
+                >
+                  <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+                  </svg>
+                  {errors.name}
+                </span>
+              )}
             </label>
             <label className="flex flex-col">
               <span className="text-white font-medium mb-1.5">Your email</span>
@@ -109,8 +162,23 @@ const Contact = () => {
                 placeholder="What's your web address?"
                 data-cursor="disable"
                 required
-                className="bg-tertiary py-3 px-4 placeholder:text-secondary text-white rounded-lg outline-none border border-[rgba(194,164,255,0.15)] focus:border-[var(--accentColor)] focus:ring-1 focus:ring-[var(--accentColor)] font-medium transition-all duration-300 hover:border-[rgba(194,164,255,0.4)]"
+                className={`bg-tertiary py-3 px-4 placeholder:text-secondary text-white rounded-lg outline-none border font-medium transition-all duration-300 hover:border-[rgba(194,164,255,0.4)] ${
+                  errors.email
+                    ? "border-red-500/80 focus:border-red-500 focus:ring-1 focus:ring-red-500"
+                    : "border-[rgba(194,164,255,0.15)] focus:border-[var(--accentColor)] focus:ring-1 focus:ring-[var(--accentColor)]"
+                }`}
               />
+              {errors.email && (
+                <span 
+                  className="text-[#ff5252] text-[12px] font-medium mt-1.5 flex items-center gap-1.5"
+                  style={{ animation: "fadeIn 0.25s ease-out forwards" }}
+                >
+                  <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+                  </svg>
+                  {errors.email}
+                </span>
+              )}
             </label>
             <label className="flex flex-col">
               <span className="text-white font-medium mb-1.5">Your Message</span>
@@ -122,8 +190,23 @@ const Contact = () => {
                 placeholder="What you want to say?"
                 data-cursor="disable"
                 required
-                className="bg-tertiary py-3 px-4 placeholder:text-secondary text-white rounded-lg outline-none border border-[rgba(194,164,255,0.15)] focus:border-[var(--accentColor)] focus:ring-1 focus:ring-[var(--accentColor)] font-medium transition-all duration-300 hover:border-[rgba(194,164,255,0.4)]"
+                className={`bg-tertiary py-3 px-4 placeholder:text-secondary text-white rounded-lg outline-none border font-medium transition-all duration-300 hover:border-[rgba(194,164,255,0.4)] ${
+                  errors.message
+                    ? "border-red-500/80 focus:border-red-500 focus:ring-1 focus:ring-red-500"
+                    : "border-[rgba(194,164,255,0.15)] focus:border-[var(--accentColor)] focus:ring-1 focus:ring-[var(--accentColor)]"
+                }`}
               />
+              {errors.message && (
+                <span 
+                  className="text-[#ff5252] text-[12px] font-medium mt-1.5 flex items-center gap-1.5"
+                  style={{ animation: "fadeIn 0.25s ease-out forwards" }}
+                >
+                  <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+                  </svg>
+                  {errors.message}
+                </span>
+              )}
             </label>
 
             <button
