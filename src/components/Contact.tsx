@@ -33,6 +33,10 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
+      alert("Please fill out all fields before sending.");
+      return;
+    }
     setLoading(true);
 
     emailjs
@@ -91,6 +95,7 @@ const Contact = () => {
                 onChange={handleChange}
                 placeholder="What's your good name?"
                 data-cursor="disable"
+                required
                 className="bg-tertiary py-3 px-4 placeholder:text-secondary text-white rounded-lg outline-none border border-[rgba(194,164,255,0.15)] focus:border-[var(--accentColor)] focus:ring-1 focus:ring-[var(--accentColor)] font-medium transition-all duration-300 hover:border-[rgba(194,164,255,0.4)]"
               />
             </label>
@@ -103,6 +108,7 @@ const Contact = () => {
                 onChange={handleChange}
                 placeholder="What's your web address?"
                 data-cursor="disable"
+                required
                 className="bg-tertiary py-3 px-4 placeholder:text-secondary text-white rounded-lg outline-none border border-[rgba(194,164,255,0.15)] focus:border-[var(--accentColor)] focus:ring-1 focus:ring-[var(--accentColor)] font-medium transition-all duration-300 hover:border-[rgba(194,164,255,0.4)]"
               />
             </label>
@@ -115,6 +121,7 @@ const Contact = () => {
                 onChange={handleChange}
                 placeholder="What you want to say?"
                 data-cursor="disable"
+                required
                 className="bg-tertiary py-3 px-4 placeholder:text-secondary text-white rounded-lg outline-none border border-[rgba(194,164,255,0.15)] focus:border-[var(--accentColor)] focus:ring-1 focus:ring-[var(--accentColor)] font-medium transition-all duration-300 hover:border-[rgba(194,164,255,0.4)]"
               />
             </label>
