@@ -46,13 +46,13 @@ const Navbar = () => {
         <a href="/#" className="navbar-title flex items-center" data-cursor="logo">
           <img src={logo} alt="Logo" className="h-12 w-auto sm:h-14 md:h-16" />
         </a>
-        <a
+        {/* <a
           href="mailto:jashanpreetlehra@gmail.com"
           className="navbar-connect"
           data-cursor="disable"
         >
           jashanpreetlehra@gmail.com
-        </a>
+        </a> */}
         <ul>
           <li>
             <a data-href="#about" href="#about">

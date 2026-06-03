@@ -8,19 +8,22 @@ const WhatIDo = () => {
     containerRef.current[index] = el;
   };
   useEffect(() => {
+    const handlers: { container: HTMLDivElement; fn: () => void }[] = [];
+
     if (ScrollTrigger.isTouch) {
       containerRef.current.forEach((container) => {
         if (container) {
           container.classList.remove("what-noTouch");
-          container.addEventListener("click", () => handleClick(container));
+          const fn = () => handleClick(container);
+          container.addEventListener("click", fn);
+          handlers.push({ container, fn });
         }
       });
     }
+
     return () => {
-      containerRef.current.forEach((container) => {
-        if (container) {
-          container.removeEventListener("click", () => handleClick(container));
-        }
+      handlers.forEach(({ container, fn }) => {
+        container.removeEventListener("click", fn);
       });
     };
   }, []);
@@ -87,7 +90,7 @@ const WhatIDo = () => {
             <div className="what-corner"></div>
 
             <div className="what-content-in">
-              <h3>WEB DEVELOPMENT</h3>
+              <h3>WEB DEV</h3>
               <h4>Description</h4>
               <p>
                 Building robust, scalable, and responsive web applications with a focus on modern full-stack technologies, clean architecture, and seamless user experiences.

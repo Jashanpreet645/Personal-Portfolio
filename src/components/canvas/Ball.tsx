@@ -2,7 +2,6 @@ import React, { Suspense, useRef } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import {
   Decal,
-  Float,
   OrbitControls,
   Preload,
   useTexture,
@@ -24,7 +23,7 @@ const Ball: React.FC<BallProps> = ({ imgUrl }) => {
   }
 
   return (
-    <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
+    <>
       <ambientLight intensity={0.25} />
       <directionalLight position={[0, 0, 0.05]} />
       <mesh castShadow receiveShadow scale={2.75}>
@@ -44,7 +43,7 @@ const Ball: React.FC<BallProps> = ({ imgUrl }) => {
           flatShading
         />
       </mesh>
-    </Float>
+    </>
   );
 };
 
@@ -114,9 +113,13 @@ export const BallCanvas: React.FC<BallCanvasProps> = ({ icon }) => {
   return (
     <Canvas
       frameloop="demand"
-      dpr={[1, 2]}
+      dpr={1}
       camera={{ position: [0, 0, 8], fov: 45 }}
-      gl={{ preserveDrawingBuffer: true }}
+      gl={{ 
+        preserveDrawingBuffer: false, 
+        antialias: false, 
+        powerPreference: "high-performance" 
+      }}
     >
       <Suspense fallback={null}>
         <CustomControls />
