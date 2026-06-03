@@ -38,7 +38,37 @@ h5,
 h6 {
   font-family: "Geist", sans-serif;
 }
-html, body {
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(194, 164, 255, 0.2);
+  border-radius: 10px;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(194, 164, 255, 0.6);
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-button {
+  display: none;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(194, 164, 255, 0.2) transparent;
+  overscroll-behavior: none;
+}
+body {
   overscroll-behavior: none;
 }
 a {
