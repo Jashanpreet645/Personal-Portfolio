@@ -1,80 +1,98 @@
 .about-section {
   display: flex;
   align-items: center;
-  justify-content: left;
+  justify-content: center; /* Center horizontally by default on mobile/small screens */
   place-items: center;
   position: relative;
   opacity: 1;
   height: auto;
-  width: var(--cWidth);
   margin: auto;
 }
+
 .about-me {
-  padding: 50px 0px;
-  padding-bottom: 0;
-  width: 500px;
-  max-width: calc(100% - 15px);
+  padding: 80px 0px; /* Enhanced vertical padding for small screens */
+  width: 100%; /* Take full width of section-container on small screens */
+  max-width: calc(100% - 30px); /* Leave 15px safety padding on left/right for mobile margins */
+  box-sizing: border-box;
 }
+
 .about-me h3 {
-  font-size: 18px;
+  font-size: 20px;
   text-transform: uppercase;
-  letter-spacing: 6px;
-  font-weight: 400;
+  letter-spacing: 5px;
+  font-weight: 600;
   color: var(--accentColor);
+  margin-top: 0;
+  margin-bottom: 20px;
 }
 
 .about-me p {
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 26px;
-  letter-spacing: 0.5px;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 24px;
+  letter-spacing: 0.3px;
+  text-align: justify;
+  margin: 0;
 }
 
-@media only screen and (min-width: 600px) {
-  .about-section {
-    justify-content: center;
+@media only screen and (min-width: 480px) {
+  .about-me p {
+    font-size: 15px;
+    line-height: 26px;
   }
 }
+
 @media only screen and (min-width: 768px) {
   .about-me {
-    width: 500px;
-    max-width: calc(100% - 70px);
+    padding: 100px 0px;
+    max-width: 100%; /* Fully snap to section-container width on tablet/desktop */
     transform: translateY(0%);
   }
   .about-me h3 {
-    font-size: 25px;
-    letter-spacing: 7px;
+    font-size: 24px;
+    letter-spacing: 6px;
+    margin-bottom: 24px;
+    font-weight: 500;
   }
   .about-me p {
-    font-size: 22px;
-    line-height: 30px;
-    letter-spacing: 1px;
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0.5px;
+    font-weight: 400;
   }
   .about-section {
     opacity: 1;
   }
 }
+
 @media only screen and (min-width: 1025px) {
   .about-section {
-    width: var(--cWidth);
-    justify-content: right;
-    max-width: 1920px;
+    justify-content: flex-end; /* Align about-me block to the right half of section-container */
     height: var(--vh);
     padding: 0px;
     opacity: 1;
   }
   .about-me {
     padding: 0px;
-    width: 50%;
+    width: 50%; /* Takes up exactly the right 50% of the centered section-container */
+  }
+  .about-me h3 {
+    font-size: 28px;
+    letter-spacing: 7px;
+    margin-bottom: 28px;
+    font-weight: 600;
   }
   .about-me p {
-    font-size: 1.9vw;
-    line-height: 2.3vw;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0.5px;
   }
 }
-@media only screen and (min-width: 1950px) {
+
+@media only screen and (min-width: 1400px) {
   .about-me p {
-    font-size: 2.5rem;
-    line-height: 2.7rem;
+    font-size: 20px;
+    line-height: 36px;
   }
 }
