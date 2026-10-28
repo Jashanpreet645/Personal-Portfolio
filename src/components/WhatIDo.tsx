@@ -132,27 +132,33 @@ const WhatIDo = () => {
                 />
               </svg>
             </div>
-            <div className="what-corner"></div>
-            <div className="what-content-in">
-              <h3>AI / ML</h3>
-              <h4>Description</h4>
-              <p>
-                Designing and deploying intelligent systems, training machine learning and deep learning models.
-              </p>
-              <h5>Skillset & tools</h5>
-              <div className="what-content-flex">
-                <div className="what-tags">Python</div>
-                <div className="what-tags">TensorFlow</div>
-                <div className="what-tags">PyTorch</div>
-                <div className="what-tags">Scikit-learn</div>
-                <div className="what-tags">OpenCV</div>
-                <div className="what-tags">Deep Learning</div>
-                <div className="what-tags">Computer Vision</div>
-                <div className="what-tags">NLP</div>
-                <div className="what-tags">Data Analysis</div>
-              </div>
-              <div className="what-arrow"></div>
-            </div>
+            
+<div className="what-corner"></div>
+<div className="what-content-in">
+  <h3>Backend Development</h3>
+  <h4>Description</h4>
+  <p>
+    Developing robust server-side applications, designing RESTful APIs,
+    managing databases, and implementing authentication and business logic
+    to build secure and scalable web applications.
+  </p>
+
+  <h5>Skillset & tools</h5>
+  <div className="what-content-flex">
+    <div className="what-tags">Node.js</div>
+    <div className="what-tags">Express.js</div>
+    <div className="what-tags">MongoDB</div>
+    <div className="what-tags">Mongoose</div>
+    <div className="what-tags">REST APIs</div>
+    <div className="what-tags">JWT Authentication</div>
+    <div className="what-tags">SQL</div>
+    <div className="what-tags">PostgreSQL</div>
+    <div className="what-tags">Prisma ORM</div>
+    <div className="what-tags">Git & GitHub</div>
+  </div>
+
+  <div className="what-arrow"></div>
+</div>
           </div>
         </div>
       </div>
