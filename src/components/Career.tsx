@@ -50,7 +50,7 @@ const Career = () => {
                 <h4>Summer Intern</h4>
                 <h5>DRDO – Defence Research & Development Organisation</h5>
               </div>
-              <h3>Present</h3>
+              <h3>2026</h3>
             </div>
             <p>
               Working on advanced software and technology-driven solutions while
